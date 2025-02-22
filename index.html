@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Audio Demo</title>
-    <style>
-      table, th, td {
-          border: 1px solid #ccc;
-          border-collapse: collapse;
-          padding: 8px;
-      }
-      th {
-          background: #eee;
-      }
-      body {
-          font-family: sans-serif;
-          margin: 20px;
-      }
-      h1 {
-          margin-top: 40px;
-      }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Speaker De-Identification Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+    }
+    /* Header */
+    .header {
+      background-color: #404040;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Section Title (e.g. "Speaker 1") */
+    .speaker-title {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #333;
+      border-bottom: 2px solid #333;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #ddd;
+    }
+    /* Audio Controls */
+    audio {
+      width: 200px;
+    }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #404040;
+      color: #fff;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Page Header -->
+  <div class="header">
+    <h1>Speaker De-Identification with Multiple Unlinkable Pseudo-Identities</h1>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
     <!-- Speaker 1 -->
-    <h1>Speaker 1</h1>
+    <h2 class="speaker-title">Speaker 1</h2>
     <table>
       <tr>
         <th>No DeId</th>
@@ -31,13 +90,10 @@
         <th>PSE-DeId Proposed</th>
         <th>PSAP-DeId Proposed</th>
       </tr>
-      <!-- Row 1 (1_1) -->
-
       <tr>
         <td>
           <audio controls>
             <source src="audio/speaker_1/No-DeId_id10473_cpn5_Ea1huA_00002.wav" type="audio/flac">
-            <!-- If not supported -->
             Your browser does not support the audio element.
           </audio>
         </td>
@@ -60,223 +116,158 @@
           </audio>
         </td>
       </tr>
-      <!-- Row 2 (1_2) -->
-      <!-- <tr>
+    </table>
+
+    <!-- Speaker 2 -->
+    <h2 class="speaker-title">Speaker 2</h2>
+    <table>
+      <tr>
+        <th>No DeId</th>
+        <th>PSE-DeId Naive</th>
+        <th>PSE-DeId Proposed</th>
+        <th>PSAP-DeId Proposed</th>
+      </tr>
+      <tr>
         <td>
           <audio controls>
-            <source src="audio/speaker_x/source_x2.flac" type="audio/flac">
+            <source src="audio/speaker_2/No-DeId_id10556_gLqQYVwlQF8_00006.wav" type="audio/flac">
             Your browser does not support the audio element.
           </audio>
         </td>
         <td>
           <audio controls>
-            <source src="audio/speaker_x/vc_40_naive_x2.flac" type="audio/flac">
+            <source src="audio/speaker_2/PSE-DeId-Naive_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
             Your browser does not support the audio element.
           </audio>
         </td>
         <td>
           <audio controls>
-            <source src="audio/speaker_x/vc_40_constr_x2.flac" type="audio/flac">
+            <source src="audio/speaker_2/PSE-DeId-Proposed_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
             Your browser does not support the audio element.
           </audio>
         </td>
         <td>
           <audio controls>
-            <source src="audio/speaker_x/vc_70_const_x2.flac" type="audio/flac">
+            <source src="audio/speaker_2/PSAP-DeId-Proposed_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
             Your browser does not support the audio element.
           </audio>
         </td>
       </tr>
-    </table> -->
-
-
-
     </table>
 
-        <!-- Speaker 2 -->
-        <h1>Speaker 2</h1>
-        <table>
-          <tr>
-            <th>No DeId</th>
-            <th>PSE-DeId Naive</th>
-            <th>PSE-DeId Proposed</th>
-            <th>PSAP-DeId Proposed </th>
-          </tr>
-          <!-- Row 1 (2_1) -->
-          <tr>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_2/No-DeId_id10556_gLqQYVwlQF8_00006.wav" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_2/PSE-DeId-Naive_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_2/PSE-DeId-Proposed_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_2/PSAP-DeId-Proposed_id10556-gLqQYVwlQF8-00006.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-          </tr>
-          <!-- Row 2 (2_2) -->
-          <!-- <tr>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_y/source_y2.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_y/vc_40_naive_y2.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_y/vc_40_constr_y2.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_y/vc_70_const_y2.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-          </tr> -->
-          
-        </table>
-    
-    </table>
     <!-- Speaker 3 -->
-        <h1>Speaker 3</h1>
-        <table>
-          <tr>
-            <th>No DeId</th>
-            <th>PSE-DeId Naive</th>
-            <th>PSE-DeId Proposed</th>
-            <th>PSAP-DeId Proposed </th>
-          </tr>
-          <!-- Row 1 (3_1) -->
-          <tr>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_3/No-DeId_id10586_tf35jUK3IqU_00010.wav" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_3/PSE-DeId-Naive_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_3/PSE-DeId-Proposed_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-            <td>
-              <audio controls>
-                <source src="audio/speaker_3/PSAP-DeId-Proposed_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
-                Your browser does not support the audio element.
-              </audio>
-            </td>
-          </tr>
-        </table>
+    <h2 class="speaker-title">Speaker 3</h2>
+    <table>
+      <tr>
+        <th>No DeId</th>
+        <th>PSE-DeId Naive</th>
+        <th>PSE-DeId Proposed</th>
+        <th>PSAP-DeId Proposed</th>
+      </tr>
+      <tr>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_3/No-DeId_id10586_tf35jUK3IqU_00010.wav" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_3/PSE-DeId-Naive_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_3/PSE-DeId-Proposed_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_3/PSAP-DeId-Proposed_id10586-tf35jUK3IqU-00010.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+    </table>
 
+    <!-- Speaker 4 -->
+    <h2 class="speaker-title">Speaker 4</h2>
+    <table>
+      <tr>
+        <th>No DeId</th>
+        <th>PSE-DeId Naive</th>
+        <th>PSE-DeId Proposed</th>
+        <th>PSAP-DeId Proposed</th>
+      </tr>
+      <tr>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_4/No-DeId_id10817_8pzpzGkPino_00005.wav" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_4/PSE-DeId-Naive_id10817-8pzpzGkPino-00005.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <!-- Note: This source seems to reference speaker_5 instead of speaker_4. 
+               Double check if this is correct or if it was a mistake. -->
+          <audio controls>
+            <source src="audio/speaker_5/PSE-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_4/PSAP-DeId-Proposed_id10817-8pzpzGkPino-00005.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+    </table>
 
-      </table>
-      <!-- Speaker 4 -->
-          <h1>Speaker 4</h1>
-          <table>
-            <tr>
-              <th>No DeId</th>
-              <th>PSE-DeId Naive</th>
-              <th>PSE-DeId Proposed</th>
-              <th>PSAP-DeId Proposed </th>
-            </tr>
-            <!-- Row 1 (4_1) -->
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_4/No-DeId_id10817_8pzpzGkPino_00005.wav" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_4/PSE-DeId-Naive_id10817-8pzpzGkPino-00005.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_5/PSE-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_4/PSAP-DeId-Proposed_id10817-8pzpzGkPino-00005.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-            </tr>
-          </table>
-
-
-      </table>
-      <!-- Speaker 5 -->
-          <h1>Speaker 5</h1>
-          <table>
-            <tr>
-              <th>No DeId</th>
-              <th>PSE-DeId Naive</th>
-              <th>PSE-DeId Proposed</th>
-              <th>PSAP-DeId Proposed </th>
-            </tr>
-            <!-- Row 1 (5_1) -->
-            <tr>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_5/No-DeId_id11243_ZCY9rFPmLkE_00042.wav" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_5/PSE-DeId-Naive_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_5/PSE-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-              <td>
-                <audio controls>
-                  <source src="audio/speaker_5/PSAP-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
-                  Your browser does not support the audio element.
-                </audio>
-              </td>
-            </tr>
-          </table>
+    <!-- Speaker 5 -->
+    <h2 class="speaker-title">Speaker 5</h2>
+    <table>
+      <tr>
+        <th>No DeId</th>
+        <th>PSE-DeId Naive</th>
+        <th>PSE-DeId Proposed</th>
+        <th>PSAP-DeId Proposed</th>
+      </tr>
+      <tr>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_5/No-DeId_id11243_ZCY9rFPmLkE_00042.wav" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_5/PSE-DeId-Naive_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_5/PSE-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="audio/speaker_5/PSAP-DeId-Proposed_id11243-ZCY9rFPmLkE-00042.flac" type="audio/flac">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+    </table>
+  </div>
 
 
 </body>
