@@ -269,6 +269,23 @@
     </table>
   </div>
 
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var audios = document.querySelectorAll('audio');
+        // Listen for play events on all audio elements
+        audios.forEach(function(currentAudio) {
+            currentAudio.addEventListener('play', function() {
+                // When an audio starts playing, pause all other audio elements
+                audios.forEach(function(otherAudio) {
+                    if (otherAudio !== currentAudio) {
+                        otherAudio.pause();
+                        // If you want to reset progress of other audio when switching:
+                        // otherAudio.currentTime = 0;
+                    }
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>
