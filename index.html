@@ -119,7 +119,53 @@
       }
     }
 
+    /* 为伪身份列添加背景色 */
+    .audio-table td:last-child {
+      background-color: #f8f9fa;
+      font-weight: 500;
+      color: #2c3e50;
+      border-left: 2px solid #dee2e6;
+    }
 
+    /* 表头对应列样式 */
+    .audio-table th:last-child {
+      background-color: #e9ecef;
+      border-left: 2px solid #dee2e6;
+    }
+
+        /* 在性别年龄列中添加间隔样式 */
+    .audio-table td:last-child {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .audio-table td:last-child::before {
+      content: "•";
+      color: #6c757d;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media(max-width: 768px) {
+      .audio-table td:last-child {
+        font-size: 0.85rem;
+        padding: 8px 8px 8px 25px;
+      }
+    
+      .audio-table td:last-child::before {
+        left: 10px;
+      }
+    }
+    /* 悬停效果 */
+    .audio-table td:last-child {
+      transition: background-color 0.2s ease;
+    }
+
+    .audio-table tr:hover td:last-child {
+      background-color: #e9ecef;
+    }
   </style>
   
 </head>
