@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <title>Speaker De-Identification Demo</title>
 
+
   <link rel="icon" type="image/png" href="image/de-identification.png">
 
+  
   <!-- Use a Google Font (optional) for a sleeker look -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 
@@ -13,19 +15,18 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #f7f9fa; /* A slightly bluish gray background */
+      background-color: #f7f7f7;
       font-family: "Roboto", sans-serif;
       color: #333;
     }
 
     /* HEADER */
     .header {
-      /* Lighter, modern-looking gradient background */
-      background: linear-gradient(135deg, #204e67 0%, #1a2b3c 100%);
+      /* Fancy gradient background */
+      background: linear-gradient(135deg, #434343 0%, #000000 100%);
       color: #fff;
       text-align: center;
       padding: 50px 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
     .header h1 {
       font-weight: 500;
@@ -35,7 +36,7 @@
     .header p {
       margin-top: 8px;
       font-size: 1rem;
-      opacity: 0.85;
+      opacity: 0.8;
     }
 
     /* MAIN CONTAINER */
@@ -48,19 +49,20 @@
     /* SPEAKER SECTION */
     .speaker-section {
       margin-bottom: 50px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       background-color: #fff;
       border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
+    /* Speaker title styling */
     .speaker-title {
       font-weight: 500;
       font-size: 1.3rem;
       margin: 0 0 20px;
       padding-bottom: 8px;
+      border-bottom: 2px solid #dbdbdb;
       display: inline-block;
-      border-bottom: 3px solid #ebf3f7;
     }
 
     /* TABLE STYLES */
@@ -69,38 +71,23 @@
       border-collapse: collapse;
       margin-top: 10px;
     }
-
     .audio-table thead {
-      background-color: #ebf3f7; 
+      background-color: #f0f0f0;
     }
     .audio-table th,
     .audio-table td {
       text-align: center;
       padding: 12px 8px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #eee;
     }
     .audio-table th {
       font-weight: 500;
-      color: #333;
-    }
-
-    /* Last column styles (Gender/Age) */
-    .audio-table td:last-child,
-    .audio-table th:last-child {
-      background-color: #f7fcfd; /* Subtle highlight */
-      border-left: 2px solid #d9e7ea;
-      font-weight: 500;
-      color: #2c3e50;
-      min-width: 110px;
     }
 
     /* AUDIO styling */
     audio {
       width: 220px;
       outline: none;
-      border-radius: 4px;
-      /* Subtle box shadow for the audio player itself (optional) */
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     /* FOOTER */
@@ -109,39 +96,68 @@
       padding: 20px 10px;
       font-size: 0.9rem;
       color: #777;
-      background-color: #fafcfd;
+      background-color: #fafafa;
       border-top: 1px solid #ddd;
     }
 
-    /* HOVER EFFECTS */
-    .audio-table tr:hover {
-      background-color: #f9fafb;
-    }
+    /* OPTIONAL HOVER/FOCUS EFFECTS ON AUDIO BLOCKS */
     .audio-table td:hover {
-      background-color: #f5f7f8;
+      background-color: #fafafa;
     }
-
-    /* Make the last column consistently highlighted */
-    .audio-table tr:hover td:last-child {
-      background-color: #eef7f9;
+    audio:focus {
+      outline: 2px solid #999;
     }
 
     /* MEDIA QUERIES */
-    @media (max-width: 768px) {
+    @media(max-width: 768px) {
       .audio-table th, .audio-table td {
         font-size: 0.9rem;
         padding: 8px;
       }
       audio {
         width: 100%;
-        box-shadow: none; /* Remove shadow on smaller screens if desired */
       }
-      .audio-table td:last-child,
+    }
+
+    /* 移除小圆点装饰 */
+    .audio-table td:last-child {
+      padding-left: 8px !important; /* 恢复默认padding */
+    }
+    .audio-table td:last-child::before {
+      content: none !important; /* 移除伪元素 */
+    }
+
+    /* 新样式：仅在悬停后三列时显示底色 */
+    .audio-table tr:hover td:nth-child(2):hover ~ td:last-child,
+    .audio-table tr:hover td:nth-child(3):hover ~ td:last-child,
+    .audio-table tr:hover td:nth-child(4):hover ~ td:last-child {
+      background-color: #f8f9fa;
+    }
+
+    /* 保持默认列样式 */
+    .audio-table td:last-child {
+      background-color: #f8f9fa;
+      border-left: 2px solid #dee2e6;
+      font-weight: 500;
+      color: #2c3e50;
+      transition: background-color 0.2s ease;
+    }
+
+    .audio-table th:last-child {
+      background-color: #e9ecef;
+      border-left: 2px solid #dee2e6;
+    }
+    @media (max-width: 768px) {
+      .audio-table td:last-child {
+        font-size: 0.85rem;
+        padding: 8px !important;
+      }
       .audio-table th:last-child {
-        min-width: unset;
+        font-size: 0.9rem;
       }
     }
   </style>
+  
 </head>
 <body>
   <!-- HEADER SECTION -->
@@ -153,7 +169,7 @@
   <!-- MAIN CONTENT -->
   <div class="container">
 
-    <!-- Speaker 1 -->
+    <!-- Speaker 10419 -->
     <div class="speaker-section">
       <h2 class="speaker-title">Speaker 1</h2>
       <table class="audio-table">
@@ -167,6 +183,7 @@
           </tr>
         </thead>
         <tbody>
+
           <tr>
             <td>
               <audio controls>
@@ -253,7 +270,7 @@
             <td>Female / Senior</td>
           </tr>
           
-          <!-- Segment 4 -->
+          <!-- Segment 4-->
           <tr>
             <td>
               <audio controls>
@@ -280,9 +297,11 @@
               </audio>
             </td>
             <td>Male / Young</td>
+
           </tr>
 
-          <!-- Segment 5 -->
+
+          <!-- Segment 5-->
           <tr>
             <td>
               <audio controls>
@@ -311,7 +330,8 @@
             <td>Female / Young</td>
           </tr>
 
-          <!-- Segment 6 -->
+
+          <!-- Segment 6-->
           <tr>
             <td>
               <audio controls>
@@ -343,7 +363,7 @@
       </table>
     </div>
 
-    <!-- Speaker 2 -->
+    <!-- Speaker 10758 -->
     <div class="speaker-section">
       <h2 class="speaker-title">Speaker 2</h2>
       <table class="audio-table">
@@ -357,6 +377,8 @@
           </tr>
         </thead>
         <tbody>
+
+          <!-- Segment 1-->
           <tr>
             <td>
               <audio controls>
@@ -384,6 +406,8 @@
             </td>
             <td>Male / Adult</td>
           </tr>
+
+          <!-- Segment 2-->
           <tr>
             <td>
               <audio controls>
@@ -411,6 +435,9 @@
             </td>
             <td>Male / Senior</td>
           </tr>
+
+
+          <!-- Segment 3-->
           <tr>
             <td>
               <audio controls>
@@ -438,6 +465,9 @@
             </td>
             <td>Male / Young</td>
           </tr>
+
+
+          <!-- Segment 4-->
           <tr>
             <td>
               <audio controls>
@@ -465,6 +495,8 @@
             </td>
             <td>Female / Senior</td>
           </tr>
+
+          <!-- Segment 5-->
           <tr>
             <td>
               <audio controls>
@@ -492,6 +524,8 @@
             </td>
             <td>Female / Young</td>
           </tr>
+
+          <!-- Segment 6-->
           <tr>
             <td>
               <audio controls>
@@ -519,11 +553,14 @@
             </td>
             <td>Female / Adult</td>
           </tr>
+
+
+
         </tbody>
       </table>
     </div>
 
-    <!-- Speaker 3 -->
+    <!-- Speaker 10868 -->
     <div class="speaker-section">
       <h2 class="speaker-title">Speaker 3</h2>
       <table class="audio-table">
@@ -537,6 +574,8 @@
           </tr>
         </thead>
         <tbody>
+
+          <!-- Segment 1-->
           <tr>
             <td>
               <audio controls>
@@ -564,6 +603,8 @@
             </td>
             <td>Female / Senior</td>
           </tr>
+
+          <!-- Segment 2-->
           <tr>
             <td>
               <audio controls>
@@ -591,6 +632,9 @@
             </td>
             <td>Female / Young</td>
           </tr>
+
+
+          <!-- Segment 3-->
           <tr>
             <td>
               <audio controls>
@@ -618,6 +662,9 @@
             </td>
             <td>Female / Adult</td>
           </tr>
+
+
+          <!-- Segment 4-->
           <tr>
             <td>
               <audio controls>
@@ -645,6 +692,8 @@
             </td>
             <td>Male / Senior</td>
           </tr>
+
+          <!-- Segment 5-->
           <tr>
             <td>
               <audio controls>
@@ -672,6 +721,8 @@
             </td>
             <td>Male / Young</td>
           </tr>
+
+          <!-- Segment 6-->
           <tr>
             <td>
               <audio controls>
@@ -699,9 +750,13 @@
             </td>
             <td>Male / Adult</td>
           </tr>
+
+
+
         </tbody>
       </table>
     </div>
+
 
   </div><!-- .container -->
 
@@ -719,6 +774,8 @@
           audios.forEach(function(otherAudio) {
             if (otherAudio !== currentAudio) {
               otherAudio.pause();
+              // If want to reset to the beginning when switching, can add:
+              // otherAudio.currentTime = 0;
             }
           });
         });
