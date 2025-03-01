@@ -119,46 +119,35 @@
       }
     }
 
-    /* 为伪身份列添加背景色 */
+    /* 移除小圆点装饰 */
     .audio-table td:last-child {
-      background-color: #f8f9fa;
-      font-weight: 500;
-      color: #2c3e50;
-      border-left: 2px solid #dee2e6;
+      padding-left: 8px !important; /* 恢复默认padding */
+    }
+    .audio-table td:last-child::before {
+      content: none !important; /* 移除伪元素 */
     }
 
-    /* 表头对应列样式 */
+    /* 新样式：仅在悬停后三列时显示底色 */
+    .audio-table tr:hover td:nth-child(2):hover ~ td:last-child,
+    .audio-table tr:hover td:nth-child(3):hover ~ td:last-child,
+    .audio-table tr:hover td:nth-child(4):hover ~ td:last-child {
+      background-color: #f8f9fa;
+    }
+
+    /* 保持默认列样式 */
+    .audio-table td:last-child {
+      background-color: #f8f9fa;
+      border-left: 2px solid #dee2e6;
+      font-weight: 500;
+      color: #2c3e50;
+      transition: background-color 0.2s ease;
+    }
+
     .audio-table th:last-child {
       background-color: #e9ecef;
       border-left: 2px solid #dee2e6;
     }
-
-        /* 在性别年龄列中添加间隔样式 */
-    .audio-table td:last-child {
-      position: relative;
-      padding-left: 30px;
-    }
-
-
-
-    @media(max-width: 768px) {
-      .audio-table td:last-child {
-        font-size: 0.85rem;
-        padding: 8px 8px 8px 25px;
-      }
     
-      .audio-table td:last-child::before {
-        left: 10px;
-      }
-    }
-    /* 悬停效果 */
-    .audio-table td:last-child {
-      transition: background-color 0.2s ease;
-    }
-
-    .audio-table tr:hover td:last-child {
-      background-color: #e9ecef;
-    }
   </style>
   
 </head>
