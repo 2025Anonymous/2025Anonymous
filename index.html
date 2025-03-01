@@ -118,6 +118,15 @@
         width: 100%;
       }
     }
+
+    .audio-table-info td:nth-child(5),
+    .audio-table-info th:nth-child(5) {
+      background-color: #f9f9f9; 
+      border-left: 2px solid #ccc;
+      font-style: italic;
+      color: #666;
+      font-size: 0.9em;
+    }
   </style>
   
 </head>
@@ -141,6 +150,7 @@
             <th>PSE-DeId Naive</th>
             <th>PSE-DeId Proposed</th>
             <th>PSAP-DeId Proposed</th>
+            <th>Pseudo Gender / Age</th> 
           </tr>
         </thead>
         <tbody>
@@ -170,6 +180,7 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Male / Adult</td>
           </tr>
 
           <!-- Segment 2 -->
@@ -198,6 +209,7 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Female / Adult</td>
           </tr>
 
           <!-- Segment 3 -->
@@ -226,6 +238,7 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Female / Senior</td>
           </tr>
           
           <!-- Segment 4-->
@@ -254,6 +267,8 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Male / Young</td>
+
           </tr>
 
 
@@ -283,6 +298,7 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Female / Young</td>
           </tr>
 
 
@@ -312,6 +328,7 @@
                 Your browser does not support the audio element.
               </audio>
             </td>
+            <td>Male / Senior</td>
           </tr>
         </tbody>
       </table>
